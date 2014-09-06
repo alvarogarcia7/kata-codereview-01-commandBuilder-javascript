@@ -12,6 +12,6 @@ describe("Command Builder", function(){
 	});
 
 	it("should format a command name with a multiple parameters", function(){
-		expect(buildCommand(["make","clean","install"])).toEqual("[make:clean-install]");
+		expect(buildCommand(["make","clean","install","deploy","test"])).toEqual("[make:clean-install-deploy-test]");
 	});
 });
