@@ -1,3 +1,3 @@
-function buildCommand(){
-	return {};
+function buildCommand(commandName){
+	return "["+commandName+"]";
 }
