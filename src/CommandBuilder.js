@@ -1,0 +1,3 @@
+function buildCommand(){
+	return {};
+}
