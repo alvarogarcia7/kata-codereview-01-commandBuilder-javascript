@@ -6,4 +6,8 @@ describe("Command Builder", function(){
 	it("should format a command name without parameters", function(){
 		expect(buildCommand(["make"])).toEqual("[make]");
 	});
+
+	it("should format a command name with a single parameters", function(){
+		expect(buildCommand(["make","clean"])).toEqual("[make:clean]");
+	});
 });
