@@ -7,18 +7,14 @@
  * Paso 2 eliminamos el caso de crear el comand dentro del for
  * Paso 3 Refactor de código actual
  * Paso 4 Refactor para separar responsabilidades
+ * Paso 5 Rehacemos los Tests para soportar los nuevos parámetros  cambiamos los parámetros
  */
-function buildCommand(commandNameAndArguments) {
-	if(!commandNameAndArguments){
+function buildCommand(pCommand, pArguments) {
+    if (!pCommand) {
 		return {};
 	}
 
-	var pCommand,
-		pArguments,
-	    commandBuilded,
-
-	pCommand = commandNameAndArguments[0];
-	pArguments = commandNameAndArguments.slice(1, commandNameAndArguments.length);
+	var commandBuilded;
 
 	commandBuilded = GetCommand(pCommand);
 
@@ -38,6 +34,11 @@ function GetArguments(pArguments)
         parameters;
 
     parameters = "";
+
+    if (!pArguments) {
+        return parameters;
+    }
+
     argumentsLength = pArguments.length;
 
     if (argumentsLength > 0) {
