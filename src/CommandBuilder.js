@@ -8,13 +8,14 @@
  * Paso 3 Refactor de código actual
  * Paso 4 Refactor para separar responsabilidades
  * Paso 5 Rehacemos los Tests para soportar los nuevos parámetros  cambiamos los parámetros
+ * Paso 6 Pequeña ordenación de varaibles.
  */
 function buildCommand(pCommand, pArguments) {
+    var commandBuilded;
+
     if (!pCommand) {
 		return {};
 	}
-
-	var commandBuilded;
 
 	commandBuilded = GetCommand(pCommand);
 
