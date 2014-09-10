@@ -5,26 +5,31 @@
  * los más tarde posible
  * Paso 1 mantenemos el parámetro y lo rompemos dentro de la función.
  * Paso 2 eliminamos el caso de crear el comand dentro del for
+ * Paso 3 Refactor de código actual
  */
 function buildCommand(commandNameAndArguments) {
 	if(!commandNameAndArguments){
 		return {};
 	}
 
-	var command,
-		arguments;
+	var pCommand,
+		pArguments,
+	    parameters,
+		argumentsLength;
 
-	command = commandNameAndArguments[0];
-	arguments = commandNameAndArguments.slice(1, commandNameAndArguments.length);
+	pCommand = commandNameAndArguments[0];
+	pArguments = commandNameAndArguments.slice(1, commandNameAndArguments.length);
 
-	var parameters = command;
+	argumentsLength = pArguments.length;
 
-	if (arguments.length > 0) {
-	    parameters += ":" + arguments[0];
+	parameters = pCommand;
+
+	if (argumentsLength > 0) {
+	    parameters += ":" + pArguments[0];
 	}
 
-	for (var i = 1; i < arguments.length; i++) {        
-	    parameters += "-" + arguments[i];
+	for (var i = 1; i < argumentsLength; i++) {
+	    parameters += "-" + pArguments[i];
 	};
 	
 	return "["+parameters+"]";
