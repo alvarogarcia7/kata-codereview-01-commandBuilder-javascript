@@ -8,12 +8,12 @@ function buildCommand(commandNameAndArguments){
 			if(i === 0){
 				parameters += commandNameAndArguments[i];
 			} else if(i === 1){
-				parameters += ":"+commandNameAndArguments[i];
-			} else if(i === commandNameAndArguments.length - 1){
-				parameters += "-"+commandNameAndArguments[i];
+			    parameters += ":" + commandNameAndArguments[i];
+			//DRY -> Eliminamos código Repetido:
 			} else {
 				parameters += "-"+commandNameAndArguments[i];
 			}
+            
 		};
 	}
 	return "["+parameters+"]";
