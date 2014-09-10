@@ -6,6 +6,7 @@
  * Paso 1 mantenemos el parámetro y lo rompemos dentro de la función.
  * Paso 2 eliminamos el caso de crear el comand dentro del for
  * Paso 3 Refactor de código actual
+ * Paso 4 Refactor para separar responsabilidades
  */
 function buildCommand(commandNameAndArguments) {
 	if(!commandNameAndArguments){
@@ -14,23 +15,43 @@ function buildCommand(commandNameAndArguments) {
 
 	var pCommand,
 		pArguments,
-	    parameters,
-		argumentsLength;
+	    commandBuilded,
 
 	pCommand = commandNameAndArguments[0];
 	pArguments = commandNameAndArguments.slice(1, commandNameAndArguments.length);
 
-	argumentsLength = pArguments.length;
+	commandBuilded = GetCommand(pCommand);
 
-	parameters = pCommand;
-
-	if (argumentsLength > 0) {
-	    parameters += ":" + pArguments[0];
-	}
-
-	for (var i = 1; i < argumentsLength; i++) {
-	    parameters += "-" + pArguments[i];
-	};
+	commandBuilded += GetArguments(pArguments);
 	
-	return "["+parameters+"]";
+	return GetFormattedCommandBuilded(commandBuilded);
+}
+
+function GetCommand(pCommand)
+{
+    return pCommand;
+}
+
+function GetArguments(pArguments)
+{
+    var argumentsLength,
+        parameters;
+
+    parameters = "";
+    argumentsLength = pArguments.length;
+
+    if (argumentsLength > 0) {
+        parameters += ":" + pArguments[0];
+    }
+
+    for (var i = 1; i < argumentsLength; i++) {
+        parameters += "-" + pArguments[i];
+    };
+
+    return parameters;
+}
+
+function GetFormattedCommandBuilded(pCommandBuilded)
+{
+    return "[" + pCommandBuilded + "]";
 }
