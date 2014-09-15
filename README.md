@@ -1,4 +1,4 @@
-kata-minesweeper
+kata-codereview-01-commandBuilder
 ================
 
 Code review kata, for a command builder scenario
