@@ -8,10 +8,10 @@ describe("Command Builder", function(){
 	});
 
 	it("should format a command name with a single parameters", function(){
-		expect(buildCommand(["make","clean"])).toEqual("[make:clean]");
+		expect(buildCommand(["make"],["clean"])).toEqual("[make:clean]");
 	});
 
 	it("should format a command name with a multiple parameters", function(){
-		expect(buildCommand(["make","clean","install","deploy","test"])).toEqual("[make:clean-install-deploy-test]");
+		expect(buildCommand(["make"],["clean","install","deploy","test"])).toEqual("[make:clean-install-deploy-test]");
 	});
 });
